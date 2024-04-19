@@ -12,8 +12,14 @@ import {
   MdDashboard,
   MdLock,
   MdViewList,
-  MdCategory 
+  MdCategory,
+  MdAnalytics,
+  MdCheckBox,
+  MdOutlineEmojiPeople 
 } from "react-icons/md";
+import Report from "views/admin/reports";
+import Supplier from "views/admin/suppliers";
+import Client from "views/admin/clients";
 
 const routes = [
   {
@@ -44,6 +50,27 @@ const routes = [
     icon: <MdViewList className="h-6 w-6" />,
     path: "ventas",
     component: <Sales />,
+  },
+  {
+    name: "Reportes",
+    layout: "/admin",
+    icon: <MdAnalytics className="h-6 w-6" />,
+    path: "reportes",
+    component: <Report />,
+  },
+  {
+    name: "Proveedores",
+    layout: "/admin",
+    icon: <MdCheckBox className="h-6 w-6" />,
+    path: "proveedores",
+    component: <Supplier />,
+  },
+  {
+    name: "Clientes",
+    layout: "/admin",
+    icon: <MdOutlineEmojiPeople className="h-6 w-6" />,
+    path: "clientes",
+    component: <Client />,
   },
   {
     name: "Sign In",

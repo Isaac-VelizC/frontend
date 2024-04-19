@@ -1,7 +1,6 @@
 import React from "react";
 import Pensado from "assets/img/pooh.gif";
-
-const Sales = () => {
+const Report = () => {
   return (
     <div className="container">
       <div className="mt-3 flex flex-col items-center">
@@ -12,4 +11,4 @@ const Sales = () => {
   );
 };
 
-export default Sales;
+export default Report;
