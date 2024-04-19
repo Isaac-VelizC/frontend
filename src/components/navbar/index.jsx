@@ -4,7 +4,7 @@ import { FiAlignJustify } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { FiSearch } from "react-icons/fi";
 import { RiMoonFill, RiSunFill } from "react-icons/ri";
-import avatar from "assets/img/avatars/avatar4.png";
+import avatar from "assets/img/avatars/avatar4.gif";
 
 const Navbar = (props) => {
   const { onOpenSidenav, brandText } = props;
@@ -90,7 +90,7 @@ const Navbar = (props) => {
               <div className="p-4">
                 <div className="flex items-center gap-2">
                   <p className="text-sm font-bold text-navy-700 dark:text-white">
-                    👋 Hey, Adela
+                    👋 Hey, Isak
                   </p>{" "}
                 </div>
               </div>
