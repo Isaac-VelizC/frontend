@@ -103,10 +103,9 @@ export default function TableCategory() {
     return (
         <Card extra={"w-full h-full p-4"}>
             <div className='h-full overflow-x-scroll xl:overflow-x-hidden'>
-                <DataTable tableClassName="mt-8 w-full" cellClassName="text-sm font-bold text-navy-700 dark:text-white pt-2" rowClassName="dark:!bg-navy-800"
+                <DataTable cellClassName="text-sm font-bold text-navy-700 dark:text-white py-2" rowClassName="dark:!bg-navy-800"
                     value={customers} paginator rows={5} dataKey="id" filters={filters} loading={loading}
-                    paginatorClassName='dark:!bg-navy-800 gap-4'
-                    header={header} emptyMessage="No se han encontrado categorias.">
+                    paginatorClassName='dark:!bg-navy-800 gap-4' header={header} emptyMessage="No se han encontrado categorias.">
                     <Column headerClassName="pb-2 font-bold tracking-wide text-gray-600" sortable field="name" header="Nombre"/>
                     <Column headerClassName="pb-2 font-bold tracking-wide text-gray-600" sortable field="status" header="Estado" showFilterMenu={false} body={statusBodyTemplate}/>
                     <Column body={actionBodyTemplate} exportable={false} style={{ minWidth: '8rem' }}></Column>

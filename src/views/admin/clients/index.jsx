@@ -1,14 +1,13 @@
-import { columnsDataComplex } from "views/admin/default/variables/columnsData";
-import tableDataComplex from "views/admin/default/variables/tableDataComplex.json";
-import TableProducts from "views/admin/default/components/tableProduct";
+import React from "react";
+import Pensado from "assets/img/pooh.gif";
 
 const Client = () => {
   return (
-    <div className="mt-3">
-      <TableProducts
-        columnsData={columnsDataComplex}
-        tableData={tableDataComplex}
-      />
+    <div className="container">
+      <div className="mt-3 flex flex-col items-center">
+        <p className="font-semibold text-xl dark:text-white uppercase">Pensado</p>
+        <img src={Pensado} alt="" />
+      </div>
     </div>
   );
 };

@@ -4,6 +4,7 @@
       "name": "Supplier A",
       "address": "123 Main St",
       "contact": "555-1234",
+      "status": "Activo",
       "id_products": "100"
     },
     {
@@ -11,6 +12,7 @@
       "name": "Supplier B",
       "address": "456 Elm St",
       "contact": "555-5678",
+      "status": "Activo",
       "id_products": "101"
     },
     {
@@ -18,6 +20,7 @@
       "name": "Supplier C",
       "address": "789 Oak St",
       "contact": "555-9101",
+      "status": "Activo",
       "id_products": "102"
     },
     {
@@ -25,6 +28,7 @@
       "name": "Supplier D",
       "address": "987 Pine St",
       "contact": "555-1121",
+      "status": "Activo",
       "id_products": "103"
     },
     {
@@ -32,6 +36,7 @@
       "name": "Supplier E",
       "address": "654 Maple St",
       "contact": "555-3141",
+      "status": "Inactivo",
       "id_products": "104"
     },
     {
@@ -39,6 +44,7 @@
       "name": "Supplier F",
       "address": "321 Birch St",
       "contact": "555-5161",
+      "status": "Activo",
       "id_products": "105"
     },
     {
@@ -46,6 +52,7 @@
       "name": "Supplier G",
       "address": "876 Cedar St",
       "contact": "555-7181",
+      "status": "Activo",
       "id_products": "106"
     },
     {
@@ -53,6 +60,7 @@
       "name": "Supplier H",
       "address": "543 Walnut St",
       "contact": "555-9202",
+      "status": "Activo",
       "id_products": "107"
     },
     {
@@ -60,6 +68,7 @@
       "name": "Supplier I",
       "address": "210 Cherry St",
       "contact": "555-1222",
+      "status": "Activo",
       "id_products": "108"
     },
     {
@@ -67,6 +76,7 @@
       "name": "Supplier J",
       "address": "987 Grape St",
       "contact": "555-3242",
+      "status": "Activo",
       "id_products": "109"
     }
   ]

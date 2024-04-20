@@ -6,7 +6,7 @@ import TableProducts from "views/admin/default/components/tableProduct";
 
 const Products = () => {
     return (
-      <div className="mt-3 grid h-full grid-cols-1 gap-5 xl:grid-cols-2">
+      <div className="mt-3 h-full">
         <TableProducts
           columnsData={columnsDataComplex}
           tableData={tableDataComplex}
