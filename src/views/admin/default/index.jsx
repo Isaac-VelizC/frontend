@@ -10,16 +10,11 @@ const Dashboard = () => {
   return (
     <div>
       {/* Card Widgets */}
-      <div className="mt-3 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-6">
+      <div className="mt-3 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 3xl:grid-cols-6">
         <Widget
           icon={<MdViewList className="h-7 w-7" />}
           title={"Total Productos"}
           subtitle={"$340.5"}
-        />
-        <Widget
-          icon={<MdViewList  className="h-6 w-6" />}
-          title={"Total ventas valor"}
-          subtitle={"$642.39"}
         />
         <Widget
           icon={<MdOutlineShoppingCart className="h-7 w-7" />}
@@ -46,32 +41,30 @@ const Dashboard = () => {
           title={"Productos"}
           subtitle={"$574.34"}
         />
-        <Widget
-          icon={<MdAttachMoney className="h-6 w-6" />}
-          title={"Ventas"}
-          subtitle={"$1,000"}
-        />
       </div>
       {/* tablas y Graficos */}
       <div className="mt-5 grid grid-cols-1 gap-5 md:grid-cols-2">
         <TableProducts
+          tableTitle = 'Productos mas vendidos'
           columnsData={columnsDataComplex}
           tableData={tableDataComplex}
         />
-        <ChartCategory />
+        <ChartCategory title='Productos por categoria' />
       </div>
       {/* Graficos */}
       <div className="mt-5 grid grid-cols-1 gap-5 xl:grid-cols-2">
-        <ChartCategory />
-        <ChartCategory />
+        <ChartCategory title='Productos mas vendidos'/>
+        <ChartCategory title='Productos con inventario bajo'/>
       </div>
       {/* tablas */}
       <div className="mt-5 grid grid-cols-1 gap-5 xl:grid-cols-2">
         <TableProducts
+          tableTitle = 'Productos de valores altos'
           columnsData={columnsDataComplex}
           tableData={tableDataComplex}
         />
         <TableProducts
+          tableTitle = 'Productos de valores bajos'
           columnsData={columnsDataComplex}
           tableData={tableDataComplex}
         />

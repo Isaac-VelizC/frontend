@@ -1,4 +1,4 @@
-import CardProduct from "views/admin/products/components/cardProductos";
+import PieChartCard from "views/admin/category/components/chartPie";
 import TableCategory from "./components/tableCategory";
 
 const Category = () => {
@@ -8,7 +8,7 @@ const Category = () => {
         <TableCategory/>
       </div>
       <div className="col-span-1 h-full w-full rounded-xl 2xl:col-span-1">
-        <CardProduct/>
+        <PieChartCard/>
       </div>
     </div>
   );

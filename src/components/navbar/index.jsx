@@ -48,7 +48,7 @@ const Navbar = (props) => {
           </p>
           <input
             type="text"
-            placeholder="Search..."
+            placeholder="Buscar..."
             class="block h-full w-full rounded-full bg-lightPrimary text-sm font-medium text-navy-700 outline-none placeholder:!text-gray-400 dark:bg-navy-900 dark:text-white dark:placeholder:!text-white sm:w-fit"
           />
         </div>
@@ -103,12 +103,11 @@ const Navbar = (props) => {
                 <a href=" " className="mt-3 text-sm text-gray-800 dark:text-white hover:dark:text-white">
                   Ajustes
                 </a>
-                <a
-                  href=" "
+                <Link to="/auth/sign-in"
                   className="mt-3 text-sm font-medium text-red-500 hover:text-red-500 transition duration-150 ease-out hover:ease-in"
                 >
                   Salir
-                </a>
+                </Link>
               </div>
             </div>
           }

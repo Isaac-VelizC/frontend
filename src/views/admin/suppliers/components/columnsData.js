@@ -16,7 +16,7 @@ export const columnsData = [
     accessor: "status",
   },
   {
-    Header: "",
-    accessor: "progress",
+    Header: "ACTIONS",
+    accessor: "actions",
   },
 ];

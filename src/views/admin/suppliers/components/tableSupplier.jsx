@@ -6,9 +6,10 @@ import {
   useSortBy,
   useTable,
 } from "react-table";
+import { HiMiniSquaresPlus } from "react-icons/hi2";
 import { MdCheckCircle, MdCancel, MdOutlineError } from "react-icons/md";
 import { useMemo } from "react";
-import Progress from "components/progress";
+import { CiEdit, CiTrash, CiCircleInfo } from "react-icons/ci";
 const TableSuppliers = (props) => {
   const { columnsData, tableData } = props;
 
@@ -33,7 +34,7 @@ const TableSuppliers = (props) => {
     prepareRow,
     initialState,
   } = tableInstance;
-  initialState.pageSize = 5;
+  initialState.pageSize = 10;
 
   return (
     <Card extra={"w-full h-full px-6 pb-6 sm:overflow-x-auto"}>
@@ -41,7 +42,10 @@ const TableSuppliers = (props) => {
         <div class="text-xl font-bold text-navy-700 dark:text-white">
           Lista de Proveedores
         </div>
-        <CardMenu />
+        <button className="flex items-center font-semibold text-md hover:cursor-pointer bg-lightPrimary p-2 text-brand-500 hover:bg-gray-100 
+          dark:bg-navy-700 dark:text-white dark:hover:bg-white/20 dark:active:bg-white/10 linear justify-center rounded-xl transition duration-200 gap-2">
+            <HiMiniSquaresPlus /> <span>Nuevo</span>
+        </button>
       </div>
 
       <div class="mt-8 overflow-x-scroll xl:overflow-hidden">
@@ -93,12 +97,23 @@ const TableSuppliers = (props) => {
                           </p>
                         </div>
                       );
-                    } else if (cell.column.Header === "DATE") {
-                      data = (
-                        <p className="text-sm font-bold text-navy-700 dark:text-white">
-                          {cell.value}
-                        </p>
-                      );
+                    } else if (cell.column.Header === "ACTIONS") {
+                        data = (
+                          <>
+                            <button type="button"
+                              className="text-yellow-700 hover:text-gray-900 dark:hover:text-white text-[18px] font-bold me-2 mb-1 dark:text-yellow-300">
+                              <CiEdit />
+                            </button>
+                            <button type="button"
+                              className="text-red-700 hover:text-gray-900 dark:hover:text-white text-[18px] font-bold me-2 mb-1 dark:text-red-500">
+                                <CiTrash />
+                            </button>
+                            <button type="button"
+                              className="text-green-700 hover:text-gray-900 dark:hover:text-white text-[18px] font-bold me-2 mb-1 dark:text-green-500">
+                              <CiCircleInfo />
+                            </button>
+                          </>
+                        );
                     }
                     return (
                       <td

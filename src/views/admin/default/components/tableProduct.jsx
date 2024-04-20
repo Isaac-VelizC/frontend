@@ -9,11 +9,12 @@ import {
 import { MdCheckCircle, MdCancel, MdOutlineError } from "react-icons/md";
 import { useMemo } from "react";
 import Progress from "components/progress";
-const TableProducts = (props) => {
-  const { columnsData, tableData } = props;
+const TableProducts = (props ) => {
+  const { columnsData, tableData, tableTitle } = props;
 
   const columns = useMemo(() => columnsData, [columnsData]);
   const data = useMemo(() => tableData, [tableData]);
+  const title = useMemo(() => tableTitle, [tableTitle]);
 
   const tableInstance = useTable(
     {
@@ -39,7 +40,7 @@ const TableProducts = (props) => {
     <Card extra={"w-full h-full px-6 pb-6 sm:overflow-x-auto"}>
       <div class="relative flex items-center justify-between pt-4">
         <div class="text-xl font-bold text-navy-700 dark:text-white">
-          Complex Table
+          {title && title}
         </div>
         <CardMenu />
       </div>
@@ -70,13 +71,13 @@ const TableProducts = (props) => {
                 <tr {...row.getRowProps()} key={index}>
                   {row.cells.map((cell, index) => {
                     let data = "";
-                    if (cell.column.Header === "NAME") {
+                    if (cell.column.Header === "Nombre") {
                       data = (
                         <p className="text-sm font-bold text-navy-700 dark:text-white">
                           {cell.value}
                         </p>
                       );
-                    } else if (cell.column.Header === "STATUS") {
+                    } else if (cell.column.Header === "Estado") {
                       data = (
                         <div className="flex items-center gap-2">
                           <div className={`rounded-full text-xl`}>
@@ -93,13 +94,13 @@ const TableProducts = (props) => {
                           </p>
                         </div>
                       );
-                    } else if (cell.column.Header === "DATE") {
+                    } else if (cell.column.Header === "Fecha") {
                       data = (
                         <p className="text-sm font-bold text-navy-700 dark:text-white">
                           {cell.value}
                         </p>
                       );
-                    } else if (cell.column.Header === "PROGRESS") {
+                    } else if (cell.column.Header === "Acciones") {
                       data = <Progress width="w-[108px]" value={cell.value} />;
                     }
                     return (

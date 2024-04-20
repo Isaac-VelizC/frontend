@@ -7,6 +7,7 @@ import { Tag } from 'primereact/tag';
 import { FaSearch } from "react-icons/fa";
 import { CiEdit, CiTrash, CiCircleInfo } from "react-icons/ci";
 import Card from "components/card";
+import { HiMiniSquaresPlus } from "react-icons/hi2";
 import tableDataCategory from "services/category.json";
 
 export default function TableCategory() {
@@ -63,10 +64,14 @@ export default function TableCategory() {
 
     const renderHeader = () => {
         return (
-            <div className="flex justify-end">
+            <div className="flex justify-between">        
+                <button className="flex items-center font-semibold text-md hover:cursor-pointer bg-lightPrimary p-2 text-brand-500 hover:bg-gray-100 
+                dark:bg-navy-700 dark:text-white dark:hover:bg-white/20 dark:active:bg-white/10 linear justify-center rounded-xl transition duration-200 gap-2">
+                    <HiMiniSquaresPlus /> <span>Nueva Categoria</span>
+                </button>
                 <span className="p-input-icon-left">
-                    <FaSearch size={16} style={{marginLeft: '8px'}}/>
-                    <input className='pl-8 rounded-md p-1 border border-gray-600 dark:!bg-navy-800'
+                    <FaSearch size={14} style={{marginLeft: '10px'}}/>
+                    <input className='pl-8 rounded-md p-1.5 border border-gray-600 dark:!bg-navy-800'
                         value={globalFilterValue}
                         onChange={onGlobalFilterChange}
                         placeholder="Búsqueda palabras clave" />
