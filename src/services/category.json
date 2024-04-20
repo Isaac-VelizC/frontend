@@ -1,0 +1,72 @@
+[
+    {
+      "id": "1",
+      "name": "Bolts and Nuts",
+      "image": "https://www.shutterstock.com/image-vector/letter-t-screw-logo-template-600w-2201571345.jpg",
+      "status": "Alta importancia",
+      "descripcion": "Various types of bolts and nuts"
+    },
+    {
+      "id": "2",
+      "name": "Screws",
+      "image": "https://www.shutterstock.com/image-vector/letter-t-screw-logo-template-600w-2201571345.jpg",
+      "status": "Alta importancia",
+      "descripcion": "Different types of screws"
+    },
+    {
+      "id": "3",
+      "name": "Anchors",
+      "image": "https://www.shutterstock.com/image-vector/letter-t-screw-logo-template-600w-2201571345.jpg",
+      "status": "Baja importancia",
+      "descripcion": "Anchors for heavy-duty applications"
+    },
+    {
+      "id": "4",
+      "name": "Washers",
+      "image": "https://www.shutterstock.com/image-vector/letter-t-screw-logo-template-600w-2201571345.jpg",
+      "status": "Alta importancia",
+      "descripcion": "Different types of washers"
+    },
+    {
+      "id": "5",
+      "name": "Threaded Rods",
+      "image": "https://www.shutterstock.com/image-vector/letter-t-screw-logo-template-600w-2201571345.jpg",
+      "status": "Alta importancia",
+      "descripcion": "Long, straight metal rods with threading"
+    },
+    {
+      "id": "6",
+      "name": "Rivets",
+      "image": "https://www.shutterstock.com/image-vector/letter-t-screw-logo-template-600w-2201571345.jpg",
+      "status": "Alta importancia",
+      "descripcion": "Fasteners used to join two materials together"
+    },
+    {
+      "id": "7",
+      "name": "Nails",
+      "image": "https://www.shutterstock.com/image-vector/letter-t-screw-logo-template-600w-2201571345.jpg",
+      "status": "Alta importancia",
+      "descripcion": "Commonly used for carpentry and construction"
+    },
+    {
+      "id": "8",
+      "name": "Staples",
+      "image": "https://www.shutterstock.com/image-vector/letter-t-screw-logo-template-600w-2201571345.jpg",
+      "status": "Alta importancia",
+      "descripcion": "Used for securing materials together"
+    },
+    {
+      "id": "9",
+      "name": "Screw and Bolt Assortments",
+      "image": "https://www.shutterstock.com/image-vector/letter-t-screw-logo-template-600w-2201571345.jpg",
+      "status": "Alta importancia",
+      "descripcion": "Assortments of screws and bolts for convenience"
+    },
+    {
+      "id": "10",
+      "name": "Anchoring Sets",
+      "image": "https://www.shutterstock.com/image-vector/letter-t-screw-logo-template-600w-2201571345.jpg",
+      "status": "Alta importancia",
+      "descripcion": "Sets of anchors for various applications"
+    }
+  ]

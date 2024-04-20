@@ -1,0 +1,72 @@
+[
+    {
+      "id": "1",
+      "name": "Supplier A",
+      "address": "123 Main St",
+      "contact": "555-1234",
+      "id_products": "100"
+    },
+    {
+      "id": "2",
+      "name": "Supplier B",
+      "address": "456 Elm St",
+      "contact": "555-5678",
+      "id_products": "101"
+    },
+    {
+      "id": "3",
+      "name": "Supplier C",
+      "address": "789 Oak St",
+      "contact": "555-9101",
+      "id_products": "102"
+    },
+    {
+      "id": "4",
+      "name": "Supplier D",
+      "address": "987 Pine St",
+      "contact": "555-1121",
+      "id_products": "103"
+    },
+    {
+      "id": "5",
+      "name": "Supplier E",
+      "address": "654 Maple St",
+      "contact": "555-3141",
+      "id_products": "104"
+    },
+    {
+      "id": "6",
+      "name": "Supplier F",
+      "address": "321 Birch St",
+      "contact": "555-5161",
+      "id_products": "105"
+    },
+    {
+      "id": "7",
+      "name": "Supplier G",
+      "address": "876 Cedar St",
+      "contact": "555-7181",
+      "id_products": "106"
+    },
+    {
+      "id": "8",
+      "name": "Supplier H",
+      "address": "543 Walnut St",
+      "contact": "555-9202",
+      "id_products": "107"
+    },
+    {
+      "id": "9",
+      "name": "Supplier I",
+      "address": "210 Cherry St",
+      "contact": "555-1222",
+      "id_products": "108"
+    },
+    {
+      "id": "10",
+      "name": "Supplier J",
+      "address": "987 Grape St",
+      "contact": "555-3242",
+      "id_products": "109"
+    }
+  ]
