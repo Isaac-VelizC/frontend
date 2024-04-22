@@ -42,7 +42,6 @@ const TableProducts = (props ) => {
         <div className="text-xl font-bold text-navy-700 dark:text-white">
           {title && title}
         </div>
-        <CardMenu />
       </div>
 
       <div className="mt-8 overflow-x-scroll xl:overflow-hidden">

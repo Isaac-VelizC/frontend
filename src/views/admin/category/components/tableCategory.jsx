@@ -9,8 +9,15 @@ import { CiEdit, CiTrash, CiCircleInfo } from "react-icons/ci";
 import Card from "components/card";
 import { HiMiniSquaresPlus } from "react-icons/hi2";
 import tableDataCategory from "services/category.json";
+import FormCategory from "./modalCategory";
+import { Button } from 'primereact/button';
+import DialogDetalle from "./modalDetalle";
+import DialogDelete from "components/modals/modalConfirm";
 
 export default function TableCategory() {
+    const [categoryDialog, setCategoryDialog] = useState(false);
+    const [detalleDialog, setDetalleDialog] = useState(false);
+    const [deleteDialog, setDeleteDialog] = useState(false);
     const [customers, setCustomers] = useState(null);
     const [filters, setFilters] = useState({
         global: { value: null, matchMode: FilterMatchMode.CONTAINS },
@@ -20,7 +27,23 @@ export default function TableCategory() {
     });
     const [loading, setLoading] = useState(true);
     const [globalFilterValue, setGlobalFilterValue] = useState('');
+    
+    const hideDialog = () => {
+        setCategoryDialog(false);
+        setDetalleDialog(false);
+        setDeleteDialog(false);
+    };
+    const newCategorymodal = () => {
+        setCategoryDialog(true);
+    };
 
+    const showDetallemodal = () => {
+        setDetalleDialog(true);
+    };
+    
+    const confirmDeletemodal = () => {
+        setDeleteDialog(true);
+    };
     const getSeverity = (status) => {
         switch (status) {
             case 'Alta':
@@ -66,7 +89,7 @@ export default function TableCategory() {
         return (
             <div className=" text-center md:flex md:justify-between">
                 <div className='flex justify-end pb-4 lg:pb-0'>
-                    <button className="flex items-center font-semibold text-md hover:cursor-pointer bg-lightPrimary p-2 text-brand-500 hover:bg-gray-100 
+                    <button  onClick={newCategorymodal} className="flex items-center font-semibold text-md hover:cursor-pointer bg-lightPrimary p-2 text-brand-500 hover:bg-gray-100 
                     dark:bg-navy-700 dark:text-white dark:hover:bg-white/20 dark:active:bg-white/10 linear justify-center rounded-xl transition duration-200 gap-2">
                         <HiMiniSquaresPlus /> <span>Nueva Categoria</span>
                     </button>
@@ -89,15 +112,15 @@ export default function TableCategory() {
     const actionBodyTemplate = (rowData) => {
         return (
             <div className='flex justify-between'>
-                <button type="button"
+                <button type="button" onClick={showDetallemodal}
                 className="text-green-700 hover:text-gray-900 dark:hover:text-white text-[18px] font-bold px-1 py-1 me-2 mb-1 dark:text-green-500">
                     <CiCircleInfo/>
                 </button>
-                <button type="button"
+                <button type="button" onClick={newCategorymodal}
                 className="text-yellow-700 hover:text-gray-900 dark:hover:text-white text-[18px] font-bold px-1 py-1 me-2 mb-1 dark:text-yellow-300">
                     <CiEdit/>
                 </button>
-                <button type="button"
+                <button type="button" onClick={confirmDeletemodal}
                 className="text-red-700 hover:text-gray-900 dark:hover:text-white text-[18px] font-bold px-1 py-1 me-2 mb-1 dark:text-red-500">
                     <CiTrash/>
                 </button>
@@ -107,18 +130,45 @@ export default function TableCategory() {
 
     const header = renderHeader();
 
+    const categoryDialogFooter = (
+        <>
+            <Button label="Cancelar" className='h-10' outlined onClick={hideDialog} />
+            <Button label="Continuar" className='h-10'/>
+        </>
+    );
+    const detalleDialogFooter = (
+        <Button label="Cerrar" className='h-10' outlined onClick={hideDialog} />
+    );
+
     return (
-        <Card extra={"w-full h-full p-4"}>
-            <div className='h-full overflow-x-scroll xl:overflow-x-hidden'>
-                <DataTable cellClassName="text-sm font-bold text-navy-700 dark:text-white py-2" rowClassName="dark:!bg-navy-800"
-                    value={customers} paginator rows={5} dataKey="id" filters={filters} loading={loading}
-                    paginatorClassName='dark:!bg-navy-800 gap-4' header={header} emptyMessage="No se han encontrado categorias.">
-                    <Column headerClassName="pb-2 font-bold tracking-wide text-gray-600" sortable field="name" header="Nombre"/>
-                    <Column headerClassName="pb-2 font-bold tracking-wide text-gray-600" bodyClassName="text-center"
-                        sortable field="status" header="Importancia" showFilterMenu={false} body={statusBodyTemplate}/>
-                    <Column body={actionBodyTemplate} exportable={false} style={{ minWidth: '8rem' }}></Column>
-                </DataTable>
-            </div>
-        </Card>
+        <>
+            <Card extra={"w-full h-full p-4"}>
+                <div className='h-full overflow-x-scroll xl:overflow-x-hidden'>
+                    <DataTable cellClassName="text-sm font-bold text-navy-700 dark:text-white py-2" rowClassName="dark:!bg-navy-800"
+                        value={customers} paginator rows={5} dataKey="id" filters={filters} loading={loading}
+                        paginatorClassName='dark:!bg-navy-800 gap-4' header={header} emptyMessage="No se han encontrado categorias.">
+                        <Column headerClassName="pb-2 font-bold tracking-wide text-gray-600" sortable field="name" header="Nombre"/>
+                        <Column headerClassName="pb-2 font-bold tracking-wide text-gray-600" bodyClassName="text-center"
+                            sortable field="status" header="Importancia" showFilterMenu={false} body={statusBodyTemplate}/>
+                        <Column body={actionBodyTemplate} exportable={false} style={{ minWidth: '8rem' }}></Column>
+                    </DataTable>
+                </div>
+            </Card>
+            <FormCategory
+                visible={categoryDialog}
+                onHide={() => setCategoryDialog(false)}
+                formDialogFooter={categoryDialogFooter}
+            />
+            <DialogDetalle
+                visible={detalleDialog}
+                onHide={() => setDetalleDialog(false)}
+                detalleDialogFooter={detalleDialogFooter}
+            />
+            <DialogDelete
+                visible={deleteDialog}
+                onHide={() => setDeleteDialog(false)}
+                deleteDialogFooter={categoryDialogFooter}
+            />
+        </>
     );
 }

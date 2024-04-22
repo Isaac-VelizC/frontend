@@ -4,7 +4,7 @@ import Widget from "components/widget/Widget";
 import TableProducts from "views/admin/default/components/tableProduct";
 import { columnsDataComplex } from "./variables/columnsData";
 import tableDataComplex from "./variables/tableDataComplex.json";
-
+import { AiOutlineStock } from "react-icons/ai";
 
 const Dashboard = () => {
   return (
@@ -17,7 +17,7 @@ const Dashboard = () => {
           subtitle={"$340.5"}
         />
         <Widget
-          icon={<MdOutlineShoppingCart className="h-7 w-7" />}
+          icon={<AiOutlineStock className="h-7 w-7" />}
           title={"Productos bajo Stock"}
           subtitle={"$574.34"}
         />
