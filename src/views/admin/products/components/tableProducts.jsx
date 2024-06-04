@@ -1,4 +1,3 @@
-import CardMenu from "components/card/CardMenu";
 import Card from "components/card";
 import {
   useGlobalFilter,
@@ -7,7 +6,7 @@ import {
   useTable,
 } from "react-table";
 import { HiMiniSquaresPlus } from "react-icons/hi2";
-import { CiEdit, CiTrash, CiCircleInfo } from "react-icons/ci";
+import { CiEdit, CiTrash, CiCircleInfo, CiImport } from "react-icons/ci";
 import { MdCheckCircle, MdCancel, MdOutlineError } from "react-icons/md";
 import { useMemo, useState } from "react";
 import DetalleDialog from "./modalDetalle";
@@ -60,7 +59,7 @@ const TableProducts = (props ) => {
     prepareRow,
     initialState,
   } = tableInstance;
-  initialState.pageSize = 5;
+  initialState.pageSize = 10;
 
   const productDialogFooter = (
     <>
@@ -78,11 +77,19 @@ const TableProducts = (props ) => {
           <div className="text-xl font-bold text-navy-700 dark:text-white">
             {title && title}
           </div>
-          <button onClick={newProductModal}
-            className="flex items-center font-semibold text-md hover:cursor-pointer bg-lightPrimary p-2 text-brand-500 hover:bg-gray-100 
-            dark:bg-navy-700 dark:text-white dark:hover:bg-white/20 dark:active:bg-white/10 linear justify-center rounded-xl transition duration-200 gap-2">
-              <HiMiniSquaresPlus /> <span>Nuevo</span>
-          </button>
+          <div className="flex gap-4">
+            <button onClick={newProductModal}
+              className="flex items-center font-semibold text-md hover:cursor-pointer bg-lightPrimary p-2 text-brand-700 hover:bg-gray-100 
+              dark:bg-navy-700 dark:text-white dark:hover:bg-white/20 dark:active:bg-white/10 linear justify-center rounded-xl transition duration-200 gap-2">
+                <CiImport /> <span>Importar</span>
+            </button>
+            <button onClick={newProductModal}
+              className="flex items-center font-semibold text-md hover:cursor-pointer bg-lightPrimary p-2 text-brand-500 hover:bg-gray-100 
+              dark:bg-navy-700 dark:text-white dark:hover:bg-white/20 dark:active:bg-white/10 linear justify-center rounded-xl transition duration-200 gap-2">
+                <HiMiniSquaresPlus /> <span>Nuevo</span>
+            </button>
+          </div>
+          
         </div>
 
         <div className="mt-8 overflow-x-scroll xl:overflow-hidden">
@@ -111,7 +118,13 @@ const TableProducts = (props ) => {
                   <tr {...row.getRowProps()} key={index}>
                     {row.cells.map((cell, index) => {
                       let data = "";
-                      if (cell.column.Header === "Nombre") {
+                      if (cell.column.Header === "Nombre" || cell.column.Header === "Categoria" ) {
+                        data = (
+                          <p className="text-sm font-bold text-navy-700 dark:text-white">
+                            {cell.value}
+                          </p>
+                        );
+                      } else if (cell.column.Header === "Cantidad" || cell.column.Header === "Precio") {
                         data = (
                           <p className="text-sm font-bold text-navy-700 dark:text-white">
                             {cell.value}
@@ -133,12 +146,6 @@ const TableProducts = (props ) => {
                               {cell.value}
                             </p>
                           </div>
-                        );
-                      } else if (cell.column.Header === "Fecha") {
-                        data = (
-                          <p className="text-sm font-bold text-navy-700 dark:text-white">
-                            {cell.value}
-                          </p>
                         );
                       } else if (cell.column.Header === "Acciones") {
                         data = (

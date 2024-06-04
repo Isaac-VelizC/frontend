@@ -65,11 +65,34 @@ export const columnsDataComplex = [
     accessor: "status",
   },
   {
-    Header: "Fecha",
-    accessor: "date",
+    Header: "Acciones",
+    accessor: "progress",
+  },
+];
+
+export const columnsDataHeaderTableProducts = [
+  {
+    Header: "Nombre",
+    accessor: "name",
+  },
+  {
+    Header: "Categoria",
+    accessor: "category",
+  },
+  {
+    Header: "Cantidad",
+    accessor: "quantity",
+  },
+  {
+    Header: "Precio",
+    accessor: "price",
+  },
+  {
+    Header: "Estado",
+    accessor: "status",
   },
   {
     Header: "Acciones",
-    accessor: "progress",
+    accessor: "actions",
   },
 ];

@@ -43,13 +43,15 @@ const Dashboard = () => {
         />
       </div>
       {/* tablas y Graficos */}
-      <div className="mt-5 grid grid-cols-1 gap-5 md:grid-cols-2">
+      <div className="mt-5">
+        <ChartCategory title='Productos por categoria' />
+      </div>
+      <div className="mt-5">
         <TableProducts
           tableTitle = 'Productos mas vendidos'
           columnsData={columnsDataComplex}
           tableData={tableDataComplex}
         />
-        <ChartCategory title='Productos por categoria' />
       </div>
       {/* Graficos */}
       <div className="mt-5 grid grid-cols-1 gap-5 xl:grid-cols-2">

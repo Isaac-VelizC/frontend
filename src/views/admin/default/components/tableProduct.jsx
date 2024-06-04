@@ -1,4 +1,4 @@
-import CardMenu from "components/card/CardMenu";
+import { CiCircleInfo } from "react-icons/ci";
 import Card from "components/card";
 import {
   useGlobalFilter,
@@ -8,8 +8,7 @@ import {
 } from "react-table";
 import { MdCheckCircle, MdCancel, MdOutlineError } from "react-icons/md";
 import { useMemo } from "react";
-import Progress from "components/progress";
-const TableProducts = (props ) => {
+const TableProducts = (props) => {
   const { columnsData, tableData, tableTitle } = props;
 
   const columns = useMemo(() => columnsData, [columnsData]);
@@ -67,7 +66,7 @@ const TableProducts = (props ) => {
             {page.map((row, index) => {
               prepareRow(row);
               return (
-                <tr {...row.getRowProps()} key={index}>
+                <tr cla {...row.getRowProps()} key={index}>
                   {row.cells.map((cell, index) => {
                     let data = "";
                     if (cell.column.Header === "Nombre") {
@@ -93,14 +92,16 @@ const TableProducts = (props ) => {
                           </p>
                         </div>
                       );
-                    } else if (cell.column.Header === "Fecha") {
-                      data = (
-                        <p className="text-sm font-bold text-navy-700 dark:text-white">
-                          {cell.value}
-                        </p>
-                      );
                     } else if (cell.column.Header === "Acciones") {
-                      data = <Progress width="w-[108px]" value={cell.value} />;
+                      data = (
+                        <button
+                          type="button"
+                          //onClick={showDetalleModal}
+                          className="text-green-700 hover:text-gray-900 dark:hover:text-white text-[18px] font-bold me-2 mb-1 dark:text-green-500"
+                        >
+                          <CiCircleInfo />
+                        </button>
+                      );
                     }
                     return (
                       <td
