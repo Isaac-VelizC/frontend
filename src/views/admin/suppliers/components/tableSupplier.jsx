@@ -1,21 +1,7 @@
-import CardMenu from "components/card/CardMenu";
-import Card from "components/card";
-import {
-  useGlobalFilter,
-  usePagination,
-  useSortBy,
-  useTable,
-} from "react-table";
-import { HiMiniSquaresPlus } from "react-icons/hi2";
-import { MdCheckCircle, MdCancel, MdOutlineError } from "react-icons/md";
-import { useMemo, useState } from "react";
 import { CiEdit, CiTrash, CiCircleInfo } from "react-icons/ci";
-import DetalleDialog from "./modalDetalle";
-import DialogSupplier from "./modalSuppliers";
-import DialogDelete from "components/modals/modalConfirm";
-import { Button } from 'primereact/button';
 
-const TableSuppliers = (props) => {
+/*const TableSuppliers = (props) => {
+
   const { columnsData, tableData } = props;
   const [supplierDialog, setSupplierDialog] = useState(false);
   const [detalleDialog, setDetalleDialog] = useState(false);
@@ -188,3 +174,87 @@ const TableSuppliers = (props) => {
 };
 
 export default TableSuppliers;
+*/
+
+
+
+export const columnsSuppliersTable = [
+  { name: '#', selector: (row, index) => index + 1,
+    cell: (row, index) => (
+      <p className="text-sm font-bold text-navy-700 dark:text-white">
+        {index + 1}
+      </p>
+    ),
+    style: {
+      maxWidth: "20px",
+    }, },
+  {
+    name: "Nombre",
+    selector: (row) => row.name,
+    sortable: true,
+    cell: (row) => (
+      <p className="text-sm font-bold text-navy-700 dark:text-white">
+        {row.name}
+      </p>
+    ),
+    style: {
+      minWidth: "150px",
+    },
+  },
+  {
+    name: "Dirección",
+    selector: (row) => row.address,
+    sortable: true,
+    cell: (row) => (
+      <p className="text-sm font-bold text-navy-700 dark:text-white">
+        {row.address}
+      </p>
+    )
+  },
+  {
+    name: "Contacto",
+    selector: (row) => row.contact,
+    sortable: true,
+    cell: (row) => (
+      <p className="text-sm font-bold text-navy-700 dark:text-white">
+        {row.contact}
+      </p>
+    )
+  },
+  {
+    name: "Estado",
+    selector: (row) => row.status,
+    cell: (row) => (
+        <p className="text-sm font-bold text-navy-700 dark:text-white">
+          {row.status}
+        </p>
+    ),
+  },
+  {
+    name: "Acciones",
+    cell: (row) => (
+      <>
+        <button
+          type="button"
+          className="text-yellow-700 hover:text-gray-900 dark:hover:text-white text-[18px] font-bold me-2 mb-1 dark:text-yellow-300"
+        >
+          <CiEdit />
+        </button>
+        <button
+          type="button"
+          className="text-red-700 hover:text-gray-900 dark:hover:text-white text-[18px] font-bold me-2 mb-1 dark:text-red-500"
+        >
+          <CiTrash />
+        </button>
+        <button
+          type="button"
+          className="text-green-700 hover:text-gray-900 dark:hover:text-white text-[18px] font-bold me-2 mb-1 dark:text-green-500"
+        >
+          <CiCircleInfo />
+        </button>
+      </>
+    ),
+    ignoreRowClick: true,
+    allowOverflow: true,
+  },
+];

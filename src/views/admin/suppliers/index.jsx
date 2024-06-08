@@ -1,14 +1,14 @@
-//import { columnsDataComplex } from "views/admin/default/variables/columnsData";
-//import tableDataComplex from "views/admin/default/variables/tableDataComplex.json";
 import DataTable from "services/proveedores.json";
-import { columnsData } from "./components/columnsData";
-import TableSuppliers from "./components/tableSupplier";
+import { columnsSuppliersTable } from "./components/tableSupplier";
+import TableComponent from "components/table/table";
 
 const Supplier = () => {
   return (
       <div className="mt-3">
-        <TableSuppliers
-          columnsData={columnsData}
+        <TableComponent
+          title="Lista de proveedores"
+          buttonNew={true}
+          columnsData={columnsSuppliersTable}
           tableData={DataTable}
         />
       </div>
@@ -16,4 +16,3 @@ const Supplier = () => {
   };
   
   export default Supplier;
-  

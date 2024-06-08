@@ -1,15 +1,31 @@
-import React from 'react';
-import { Dialog } from 'primereact/dialog';
+import React from "react";
+import { Button, Modal } from "keep-react";
+import MyButton from "components/button/button";
 
-const DetalleDialog = ({ visible, onHide, detalleDialogFooter }) => {
-    return (
-        <Dialog visible={visible} style={{ width: '40rem', height: '60rem' }} breakpoints={{ '960px': '80vw', '600px': '90vw' }} header={`Detalles de la categoria`} 
-        modal className="p-fluid" headerClassName='p-4 rounded-t-xl' footer={detalleDialogFooter} onHide={onHide}>
-            <div className='text-center py-10'>
-                <p className=' font-bold text-2xl'>Detalles de la Categorias</p>
-            </div>
-        </Dialog>
-    );
+const DetalleDialog = ({ isOpen, closeModal, selectedRow }) => {
+  return (
+    <Modal isOpen={isOpen} onClose={closeModal} className="bg-gray-300">
+      <Modal.Body className="space-y-3">
+        <Modal.Content>
+          <div className="!mb-6">
+            <h3 className="mb-2 text-body-1 font-medium text-metal-900">
+              {selectedRow ? selectedRow.name : "New Entry"}
+            </h3>
+            <p className="text-body-4 font-normal text-metal-600">
+            {selectedRow ? <img src={selectedRow.image} alt="" sizes="12"/> : "No existe Img"}
+            </p>
+            <p>
+              {selectedRow ? selectedRow.descripcion : ''}
+            </p>
+          </div>
+        </Modal.Content>
+        <Modal.Footer className="flex justify-center">
+          <MyButton name='Cerrar' onClick={closeModal} outline={true} color='red'/>
+          <MyButton name='Actualizar' color='green'/>
+        </Modal.Footer>
+      </Modal.Body>
+    </Modal>
+  );
 };
 
 export default DetalleDialog;

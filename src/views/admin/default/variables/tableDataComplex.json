@@ -78,5 +78,13 @@
     "price": 0.70,
     "status": "Disable",
     "date": "20 jul 2024"
+  },
+  {
+    "name": "Perno de Expansión",
+    "category": "Medianos",
+    "quantity": 55,
+    "price": 0.70,
+    "status": "Disable",
+    "date": "20 jul 2024"
   }
 ]

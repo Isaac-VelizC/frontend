@@ -1,13 +1,15 @@
-import { columnsDataHeaderTableProducts } from "views/admin/default/variables/columnsData";
+import { columnsProductsTable } from "./components/tableProducts";
 import tableDataComplex from "views/admin/default/variables/tableDataComplex.json";
-import TableProducts from "views/admin/products/components/tableProducts";
+import TableComponent from "components/table/table";
 
 const Products = () => {
     return (
       <div className="mt-3 h-full">
-        <TableProducts
-          tableTitle='Lista de productos'
-          columnsData={columnsDataHeaderTableProducts}
+        <TableComponent
+          title="Lista de productos"
+          buttonNew={true}
+          buttonImport={true}
+          columnsData={columnsProductsTable}
           tableData={tableDataComplex}
         />
       </div>

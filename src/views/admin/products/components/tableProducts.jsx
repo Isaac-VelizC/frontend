@@ -1,20 +1,9 @@
-import Card from "components/card";
-import {
-  useGlobalFilter,
-  usePagination,
-  useSortBy,
-  useTable,
-} from "react-table";
-import { HiMiniSquaresPlus } from "react-icons/hi2";
-import { CiEdit, CiTrash, CiCircleInfo, CiImport } from "react-icons/ci";
+import { CiEdit, CiTrash, CiCircleInfo } from "react-icons/ci";
 import { MdCheckCircle, MdCancel, MdOutlineError } from "react-icons/md";
-import { useMemo, useState } from "react";
-import DetalleDialog from "./modalDetalle";
-import DialogProduct from "./modalProducts";
-import DialogDelete from "components/modals/modalConfirm";
-import { Button } from 'primereact/button';
 
-const TableProducts = (props ) => {
+import React from "react";
+
+/*const TableProducts = (props ) => {
   
   const [productDialog, setProductDialog] = useState(false);
   const [detalleDialog, setDetalleDialog] = useState(false);
@@ -22,7 +11,6 @@ const TableProducts = (props ) => {
   const { columnsData, tableData, tableTitle } = props;
   const columns = useMemo(() => columnsData, [columnsData]);
   const data = useMemo(() => tableData, [tableData]);
-  const title = useMemo(() => tableTitle, [tableTitle]);
 
   const tableInstance = useTable(
     {
@@ -63,125 +51,18 @@ const TableProducts = (props ) => {
 
   const productDialogFooter = (
     <>
-      <Button label="Cancelar" className='h-10' outlined onClick={hideDialog} />
-      <Button label="Continuar" className='h-10'/>
+      <button label="Cancelar" className='h-10' outlined onClick={hideDialog}></button>
+      <button label="Continuar" className='h-10'></button>
     </>
   );
   const detalleDialogFooter = (
-      <Button label="Cerrar" className='h-10' outlined onClick={hideDialog} />
+      <button >
+label="Cerrar" className='h-10' outlined onClick={hideDialog}
+      </button>
+      
   );
   return (
     <>
-      <Card extra={"w-full h-full px-6 pb-6 sm:overflow-x-auto"}>
-        <div className="relative flex items-center justify-between pt-4">
-          <div className="text-xl font-bold text-navy-700 dark:text-white">
-            {title && title}
-          </div>
-          <div className="flex gap-4">
-            <button onClick={newProductModal}
-              className="flex items-center font-semibold text-md hover:cursor-pointer bg-lightPrimary p-2 text-brand-700 hover:bg-gray-100 
-              dark:bg-navy-700 dark:text-white dark:hover:bg-white/20 dark:active:bg-white/10 linear justify-center rounded-xl transition duration-200 gap-2">
-                <CiImport /> <span>Importar</span>
-            </button>
-            <button onClick={newProductModal}
-              className="flex items-center font-semibold text-md hover:cursor-pointer bg-lightPrimary p-2 text-brand-500 hover:bg-gray-100 
-              dark:bg-navy-700 dark:text-white dark:hover:bg-white/20 dark:active:bg-white/10 linear justify-center rounded-xl transition duration-200 gap-2">
-                <HiMiniSquaresPlus /> <span>Nuevo</span>
-            </button>
-          </div>
-          
-        </div>
-
-        <div className="mt-8 overflow-x-scroll xl:overflow-hidden">
-          <table {...getTableProps()} className="w-full">
-            <thead>
-              {headerGroups.map((headerGroup, index) => (
-                <tr {...headerGroup.getHeaderGroupProps()} key={index}>
-                  {headerGroup.headers.map((column, index) => (
-                    <th
-                      {...column.getHeaderProps(column.getSortByToggleProps())}
-                      key={index}
-                      className="border-b border-gray-200 pr-28 pb-[10px] text-start dark:!border-navy-700"
-                    >
-                      <p className="text-xs tracking-wide text-gray-600">
-                        {column.render("Header")}
-                      </p>
-                    </th>
-                  ))}
-                </tr>
-              ))}
-            </thead>
-            <tbody {...getTableBodyProps()}>
-              {page.map((row, index) => {
-                prepareRow(row);
-                return (
-                  <tr {...row.getRowProps()} key={index}>
-                    {row.cells.map((cell, index) => {
-                      let data = "";
-                      if (cell.column.Header === "Nombre" || cell.column.Header === "Categoria" ) {
-                        data = (
-                          <p className="text-sm font-bold text-navy-700 dark:text-white">
-                            {cell.value}
-                          </p>
-                        );
-                      } else if (cell.column.Header === "Cantidad" || cell.column.Header === "Precio") {
-                        data = (
-                          <p className="text-sm font-bold text-navy-700 dark:text-white">
-                            {cell.value}
-                          </p>
-                        );
-                      } else if (cell.column.Header === "Estado") {
-                        data = (
-                          <div className="flex items-center gap-2">
-                            <div className={`rounded-full text-xl`}>
-                              {cell.value === "Approved" ? (
-                                <MdCheckCircle className="text-green-500" />
-                              ) : cell.value === "Disable" ? (
-                                <MdCancel className="text-red-500" />
-                              ) : cell.value === "Error" ? (
-                                <MdOutlineError className="text-orange-500" />
-                              ) : null}
-                            </div>
-                            <p className="text-sm font-bold text-navy-700 dark:text-white">
-                              {cell.value}
-                            </p>
-                          </div>
-                        );
-                      } else if (cell.column.Header === "Acciones") {
-                        data = (
-                          <>
-                            <button type="button" onClick={newProductModal}
-                              className="text-yellow-700 hover:text-gray-900 dark:hover:text-white text-[18px] font-bold me-2 mb-1 dark:text-yellow-300">
-                              <CiEdit />
-                            </button>
-                            <button type="button" onClick={confirmDeleteModal}
-                              className="text-red-700 hover:text-gray-900 dark:hover:text-white text-[18px] font-bold me-2 mb-1 dark:text-red-500">
-                                <CiTrash />
-                            </button>
-                            <button type="button" onClick={showDetalleModal}
-                              className="text-green-700 hover:text-gray-900 dark:hover:text-white text-[18px] font-bold me-2 mb-1 dark:text-green-500">
-                              <CiCircleInfo />
-                            </button>
-                          </>
-                        );
-                      }
-                      return (
-                        <td
-                          className="pt-[14px] pb-[18px] sm:text-[14px]"
-                          {...cell.getCellProps()}
-                          key={index}
-                        >
-                          {data}
-                        </td>
-                      );
-                    })}
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-        </div>
-      </Card>
       <DialogProduct
           visible={productDialog}
           onHide={() => setProductDialog(false)}
@@ -202,3 +83,97 @@ const TableProducts = (props ) => {
 };
 
 export default TableProducts;
+*/
+
+export const columnsProductsTable = [
+  {
+    name: "Nombre",
+    selector: (row) => row.name,
+    sortable: true,
+    cell: (row) => (
+      <p className="text-sm font-bold text-navy-700 dark:text-white">
+        {row.name}
+      </p>
+    ),
+    style: {
+      minWidth: "150px",
+    },
+  },
+  {
+    name: "Categoria",
+    selector: (row) => row.category,
+    sortable: true,
+    cell: (row) => (
+      <p className="text-sm font-bold text-navy-700 dark:text-white">
+        {row.category}
+      </p>
+    ),
+  },
+  {
+    name: "Cantidad",
+    selector: (row) => row.quantity,
+    sortable: true,
+    cell: (row) => (
+      <p className="text-sm font-bold text-navy-700 dark:text-white">
+        {row.quantity}
+      </p>
+    ),
+  },
+  {
+    name: "Precio",
+    selector: (row) => row.price,
+    sortable: true,
+    cell: (row) => (
+      <p className="text-sm font-bold text-navy-700 dark:text-white">
+        {row.price}
+      </p>
+    ),
+  },
+  {
+    name: "Estado",
+    selector: (row) => row.status,
+    cell: (row) => (
+      <div className="flex items-center gap-2">
+        <div className="rounded-full text-xl">
+          {row.status === "Approved" ? (
+            <MdCheckCircle className="text-green-500" />
+          ) : row.status === "Disable" ? (
+            <MdCancel className="text-red-500" />
+          ) : row.status === "Error" ? (
+            <MdOutlineError className="text-orange-500" />
+          ) : null}
+        </div>
+        <p className="text-sm font-bold text-navy-700 dark:text-white hidden md:block">
+          {row.status}
+        </p>
+      </div>
+    ),
+  },
+  {
+    name: "Acciones",
+    cell: (row) => (
+      <>
+        <button
+          type="button"
+          className="text-yellow-700 hover:text-gray-900 dark:hover:text-white text-[18px] font-bold me-2 mb-1 dark:text-yellow-300"
+        >
+          <CiEdit />
+        </button>
+        <button
+          type="button"
+          className="text-red-700 hover:text-gray-900 dark:hover:text-white text-[18px] font-bold me-2 mb-1 dark:text-red-500"
+        >
+          <CiTrash />
+        </button>
+        <button
+          type="button"
+          className="text-green-700 hover:text-gray-900 dark:hover:text-white text-[18px] font-bold me-2 mb-1 dark:text-green-500"
+        >
+          <CiCircleInfo />
+        </button>
+      </>
+    ),
+    ignoreRowClick: true,
+    allowOverflow: true,
+  },
+];

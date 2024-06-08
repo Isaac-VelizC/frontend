@@ -1,15 +1,49 @@
-import React from 'react';
-import { Dialog } from 'primereact/dialog';
+import React, { useState } from "react";
+import { Button, Modal, Label, Input, Textarea } from "keep-react";
+import MyButton from "components/button/button";
 
-const FormDialog = ({ visible, onHide, formDialogFooter }) => {
-    return (
-        <Dialog visible={visible} style={{ width: '40rem', height: '60rem' }} breakpoints={{ '960px': '80vw', '600px': '90vw' }} header={`Información de la categoria`} 
-        modal className="p-fluid" headerClassName='p-4 rounded-t-xl' footer={formDialogFooter} onHide={onHide}>
-            <div className='text-center py-10'>
-                <p className=' font-bold text-2xl'>Formulario de Categorias</p>
+const FormDialogCategory = ({ isOpen, closeModal }) => {
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setSelectedImage(reader.result);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+  return (
+    <Modal isOpen={isOpen} onClose={closeModal} className="bg-gray-300">
+      <Modal.Body className="w-[50rem] space-y-3 dark:bg-navy-800">
+        <Modal.Content className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+                <fieldset className="max-w-md space-y-2">
+                    <Label className="text-navy-700 dark:text-white" htmlFor="name">Nombre de Categoria *</Label>
+                    <Input id="name" placeholder="Nombre" type="text" style={{ background: 'transparent'}}/>
+                </fieldset>
+                <fieldset className="max-w-md space-y-2">
+                    <Label className="text-navy-700 dark:text-white" htmlFor="file">Ingresar una imagen</Label>
+                    <Input id="file" type="file" onChange={handleImageChange}/>
+                </fieldset>
+                <fieldset className="max-w-md space-y-2">
+                    <Label className="text-navy-700 dark:text-white" htmlFor="descripcion">Descripción</Label>
+                    <Textarea placeholder="Ingresa una pequeña descripción" rows={7} style={{ background: 'transparent'}}></Textarea>
+                </fieldset>
             </div>
-        </Dialog>
-    );
+            <div className="flex justify-center items-center">
+                <img className=" rounded-2xl w-80 h-96 object-cover" src={ selectedImage || "https://cdn.sanity.io/images/cbyxytey/production/03920b4ded72998ca793497b8fa2c461c3273b79-800x1000.jpg/tegan-8.jpg?w=800&h=1000&auto=format"} alt="" />
+            </div>
+        </Modal.Content>
+        <Modal.Footer>
+          <MyButton name='Cancelar' onClick={closeModal} outline={true} color='red'/>
+          <MyButton name='Guardar' color='green'/>
+        </Modal.Footer>
+      </Modal.Body>
+    </Modal>
+  );
 };
 
-export default FormDialog;
+export default FormDialogCategory;

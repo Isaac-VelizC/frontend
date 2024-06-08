@@ -59,7 +59,7 @@
       "id": "8",
       "name": "Bolt H",
       "descripcion": "Short description of Bolt H",
-      "category": "1",
+      "category": "7",
       "price": "14.99",
       "quantity": "15"
     },
@@ -67,7 +67,7 @@
       "id": "9",
       "name": "Bolt I",
       "descripcion": "Short description of Bolt I",
-      "category": "1",
+      "category": "2",
       "price": "13.99",
       "quantity": "10"
     },
@@ -75,7 +75,7 @@
       "id": "10",
       "name": "Bolt J",
       "descripcion": "Short description of Bolt J",
-      "category": "1",
+      "category": "4",
       "price": "16.99",
       "quantity": "5"
     },
@@ -91,7 +91,7 @@
       "id": "12",
       "name": "Bolt L",
       "descripcion": "Short description of Bolt L",
-      "category": "1",
+      "category": "3",
       "price": "19.99",
       "quantity": "12"
     },
@@ -99,7 +99,7 @@
       "id": "13",
       "name": "Bolt M",
       "descripcion": "Short description of Bolt M",
-      "category": "1",
+      "category": "2",
       "price": "21.99",
       "quantity": "18"
     },
@@ -115,7 +115,7 @@
       "id": "15",
       "name": "Bolt O",
       "descripcion": "Short description of Bolt O",
-      "category": "1",
+      "category": "4",
       "price": "25.99",
       "quantity": "28"
     }

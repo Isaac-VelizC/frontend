@@ -1,10 +1,16 @@
 import ChartCategory from "views/admin/default/components/chartCategory";
-import { MdAttachMoney, MdPeople, MdOutlineShoppingCart, MdViewList, MdAnalytics } from "react-icons/md";
+import {
+  MdAttachMoney,
+  MdPeople,
+  MdOutlineShoppingCart,
+  MdViewList,
+  MdAnalytics,
+} from "react-icons/md";
 import Widget from "components/widget/Widget";
-import TableProducts from "views/admin/default/components/tableProduct";
 import { columnsDataComplex } from "./variables/columnsData";
 import tableDataComplex from "./variables/tableDataComplex.json";
 import { AiOutlineStock } from "react-icons/ai";
+import TableComponent from "components/table/table";
 
 const Dashboard = () => {
   return (
@@ -44,29 +50,29 @@ const Dashboard = () => {
       </div>
       {/* tablas y Graficos */}
       <div className="mt-5">
-        <ChartCategory title='Productos por categoria' />
+        <ChartCategory title="Productos por categoria" />
       </div>
       <div className="mt-5">
-        <TableProducts
-          tableTitle = 'Productos mas vendidos'
+        <TableComponent
+          title="Productos mas vendidos"
           columnsData={columnsDataComplex}
           tableData={tableDataComplex}
         />
       </div>
       {/* Graficos */}
       <div className="mt-5 grid grid-cols-1 gap-5 xl:grid-cols-2">
-        <ChartCategory title='Productos mas vendidos'/>
-        <ChartCategory title='Productos con inventario bajo'/>
+        <ChartCategory title="Productos mas vendidos" />
+        <ChartCategory title="Productos con inventario bajo" />
       </div>
       {/* tablas */}
       <div className="mt-5 grid grid-cols-1 gap-5 xl:grid-cols-2">
-        <TableProducts
-          tableTitle = 'Productos de valores altos'
+        <TableComponent
+          title="Productos de valores altos"
           columnsData={columnsDataComplex}
           tableData={tableDataComplex}
         />
-        <TableProducts
-          tableTitle = 'Productos de valores bajos'
+        <TableComponent
+          title="Productos de valores bajos"
           columnsData={columnsDataComplex}
           tableData={tableDataComplex}
         />
