@@ -85,7 +85,7 @@ label="Cerrar" className='h-10' outlined onClick={hideDialog}
 export default TableProducts;
 */
 
-export const columnsProductsTable = [
+export const columnsProductsTable = (openModalDelete, openModalEdit) => [
   {
     name: "Nombre",
     selector: (row) => row.name,
@@ -154,13 +154,13 @@ export const columnsProductsTable = [
     cell: (row) => (
       <>
         <button
-          type="button"
+          type="button" onClick={() => openModalEdit(row)}
           className="text-yellow-700 hover:text-gray-900 dark:hover:text-white text-[18px] font-bold me-2 mb-1 dark:text-yellow-300"
         >
           <CiEdit />
         </button>
         <button
-          type="button"
+          type="button" onClick={() => openModalDelete(row.id)}
           className="text-red-700 hover:text-gray-900 dark:hover:text-white text-[18px] font-bold me-2 mb-1 dark:text-red-500"
         >
           <CiTrash />

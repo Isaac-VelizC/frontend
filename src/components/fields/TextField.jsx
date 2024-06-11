@@ -1,8 +1,8 @@
 // Custom components
 import React from "react";
 
-function InputField(props) {
-  const { label, id, extra, placeholder, cols, rows, state, disabled } = props;
+function InputTextareaField(props) {
+  const { label, id, extra, placeholder, cols, rows, state, disabled, value } = props;
 
   return (
     <div className={`${extra}`}>
@@ -30,10 +30,10 @@ function InputField(props) {
           }`}
           name={id}
           id={id}
-        />
+        >{value}</textarea>
       </div>
     </div>
   );
 }
 
-export default InputField;
+export default InputTextareaField;
