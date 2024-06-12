@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Modal, Label, Input, Textarea } from "keep-react";
+import { Modal } from "keep-react";
 import MyButton from "components/button/button";
 import InputField from "components/fields/InputField";
 import InputTextareaField from "components/fields/TextField";
+import ImgError from "assets/img/img-error.png";
 
 const ProductDialog = ({ isOpen, closeModal, selectedRow }) => {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -32,10 +33,7 @@ const ProductDialog = ({ isOpen, closeModal, selectedRow }) => {
           <div className="flex justify-center items-center py-2">
             <img
               className=" rounded-full w-28 object-cover"
-              src={
-                selectedImage ||
-                "https://cdn.sanity.io/images/cbyxytey/production/03920b4ded72998ca793497b8fa2c461c3273b79-800x1000.jpg/tegan-8.jpg?w=800&h=1000&auto=format"
-              }
+              src={ selectedImage || ImgError }
               alt=""
             />
           </div>

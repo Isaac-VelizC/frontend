@@ -17,7 +17,6 @@ const ChartCategory= ({ title }) => {
           <MdBarChart className="h-6 w-6" />
         </button>
       </div>
-
       <div className="md:mt-16 lg:mt-0">
         <div className="h-[250px] w-full xl:h-[350px]">
           <BarChart

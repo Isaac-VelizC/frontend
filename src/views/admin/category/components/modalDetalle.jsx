@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Modal, Toggle, Label, Input, Textarea } from "keep-react";
 import MyButton from "components/button/button";
+import ImgError from "assets/img/img-error.png";
 import "./style.css";
 
 const DetalleDialog = ({ isOpen, closeModal, selectedRow }) => {
@@ -97,12 +98,7 @@ const DetalleDialog = ({ isOpen, closeModal, selectedRow }) => {
           <div className="flex justify-center items-center">
             <img
               className=" rounded-2xl w-80 h-96 object-cover"
-              src={
-                selectedImage ||
-                (selectedRow
-                  ? selectedRow.image
-                  : "https://cdn.sanity.io/images/cbyxytey/production/03920b4ded72998ca793497b8fa2c461c3273b79-800x1000.jpg/tegan-8.jpg?w=800&h=1000&auto=format")
-              }
+              src={selectedImage || (selectedRow ? selectedRow.image : ImgError)}
               alt=""
             />
           </div>

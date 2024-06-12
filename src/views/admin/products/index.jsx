@@ -8,6 +8,7 @@ import DetalleDialog from "./components/modalDetalle";
 
 const Products = () => {
   const [isOpenModal, setIsOpenModal] = useState(false);
+  const [isOpenModalDetail, setIsOpenModalDetail] = useState(false);
   const [isOpenModalDelete, setIsOpenModalDelete] = useState(false);
   const [selectedRow, setSelectedRow] = useState(null);
 
@@ -22,7 +23,13 @@ const Products = () => {
     setIsOpenModal(true);
   };
 
+  const openModalDetail = (row) => {
+    setSelectedRow(row);
+    setIsOpenModalDetail(true);
+  };
+
   const closeModal = () => {
+    setIsOpenModalDetail(false);
     setIsOpenModalDelete(false);
     setIsOpenModal(false);
     setSelectedRow(null);
@@ -35,11 +42,11 @@ const Products = () => {
           eventNew={() => openModalForm()}
           buttonNew={true}
           buttonImport={true}
-          columnsData={columnsProductsTable(openModalDelete, openModalForm)}
+          columnsData={columnsProductsTable(openModalDelete, openModalForm, openModalDetail)}
           tableData={tableDataComplex}
         />
         <ProductDialog isOpen={isOpenModal} closeModal={closeModal} selectedRow={selectedRow}/>
-        <DetalleDialog isOpen={isOpenModal} closeModal={closeModal}/>
+        <DetalleDialog isOpen={isOpenModalDetail} closeModal={closeModal} selectedRow={selectedRow}/>
         <DialogConfirm isOpen={isOpenModalDelete} closeModal={closeModal} selectedRow={selectedRow} />
       </div>
     );

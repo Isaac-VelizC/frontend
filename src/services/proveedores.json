@@ -2,81 +2,111 @@
     {
       "id": "1",
       "name": "Supplier A",
+      "lastname": "main",
+      "nit": "9887342",
       "address": "123 Main St",
       "contact": "555-1234",
       "status": "Activo",
-      "id_products": "100"
+      "id_products": "100",
+      "email": "main@gmail.com"
     },
     {
       "id": "2",
       "name": "Supplier B",
+      "lastname": "elm",
+      "nit": "90871FG",
       "address": "456 Elm St",
       "contact": "555-5678",
       "status": "Activo",
-      "id_products": "101"
+      "id_products": "101",
+      "email": "ciic@gmail.com"
     },
     {
       "id": "3",
       "name": "Supplier C",
+      "lastname": "oak",
+      "nit": "3492883",
       "address": "789 Oak St",
       "contact": "555-9101",
       "status": "Activo",
-      "id_products": "102"
+      "id_products": "102",
+      "email": "oak@gmail.com"
     },
     {
       "id": "4",
       "name": "Supplier D",
+      "lastname": "pine",
+      "nit": "9384892",
       "address": "987 Pine St",
       "contact": "555-1121",
       "status": "Activo",
-      "id_products": "103"
+      "id_products": "103",
+      "email": "@gmail.com"
     },
     {
       "id": "5",
       "name": "Supplier E",
+      "lastname": "maple",
+      "nit": "9879092",
       "address": "654 Maple St",
       "contact": "555-3141",
       "status": "Inactivo",
-      "id_products": "104"
+      "id_products": "104",
+      "email": "maple@gmail.com"
     },
     {
       "id": "6",
       "name": "Supplier F",
+      "lastname": "birch",
+      "nit": "039482FD",
       "address": "321 Birch St",
       "contact": "555-5161",
       "status": "Activo",
-      "id_products": "105"
+      "id_products": "105",
+      "email": "birch@gmail.com"
     },
     {
       "id": "7",
       "name": "Supplier G",
+      "lastname": "cedar",
+      "nit": "90897432",
       "address": "876 Cedar St",
       "contact": "555-7181",
       "status": "Activo",
-      "id_products": "106"
+      "id_products": "106",
+      "email": "cedar@gmail.com"
     },
     {
       "id": "8",
       "name": "Supplier H",
+      "lastname": "walnut",
+      "nit": "9938498-SD",
       "address": "543 Walnut St",
       "contact": "555-9202",
       "status": "Activo",
-      "id_products": "107"
+      "id_products": "107",
+      "email": "walnut@gmail.com"
     },
     {
       "id": "9",
       "name": "Supplier I",
+      "lastname": "cherry",
+      "nit": "0943KO",
       "address": "210 Cherry St",
       "contact": "555-1222",
       "status": "Activo",
-      "id_products": "108"
+      "id_products": "108",
+      "email": "cherryr@gmail.com"
     },
     {
       "id": "10",
       "name": "Supplier J",
+      "lastname": "grape",
+      "nit": "084323-OI",
       "address": "987 Grape St",
       "contact": "555-3242",
       "status": "Activo",
-      "id_products": "109"
+      "id_products": "109",
+      "email": "grape@gmail.com"
     }
-  ]
+]
