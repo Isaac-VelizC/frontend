@@ -15,11 +15,15 @@ import {
   MdCategory,
   MdAnalytics,
   MdCheckBox,
-  MdOutlineEmojiPeople 
+  MdOutlineEmojiPeople,
+  MdOutlineAllInbox,
+  MdOutlineAddShoppingCart 
 } from "react-icons/md";
 import Report from "views/admin/reports";
 import Supplier from "views/admin/suppliers";
 import Client from "views/admin/clients";
+import Almacen from "views/admin/almacen";
+import Purchase from "views/admin/purchase";
 
 const routes = [
   {
@@ -28,6 +32,14 @@ const routes = [
     path: "default",
     icon: <MdHome className="h-6 w-6" />,
     component: <MainDashboard />,
+  },
+  {
+    name: "Almacenes",
+    layout: "/admin",
+    path: "almacenes",
+    icon: <MdOutlineAllInbox className="h-6 w-6" />,
+    component: <Almacen />,
+    secondary: true,
   },
   {
     name: "Productos",
@@ -50,6 +62,13 @@ const routes = [
     icon: <MdViewList className="h-6 w-6" />,
     path: "ventas",
     component: <Sales />,
+  },
+  {
+    name: "Compras",
+    layout: "/admin",
+    icon: <MdOutlineAddShoppingCart className="h-6 w-6" />,
+    path: "compras",
+    component: <Purchase />,
   },
   {
     name: "Reportes",

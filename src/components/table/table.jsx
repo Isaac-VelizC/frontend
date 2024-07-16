@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import Card from "components/card";
 import { HiMiniSquaresPlus } from "react-icons/hi2";
 import DataTable, { createTheme } from "react-data-table-component";
 import { CiImport } from "react-icons/ci";
 
 const TableComponent = ({ title, columnsData, tableData, buttonNew, buttonExport, buttonImport, eventNew }) => {
+  const [data, setData] = useState(tableData);
+  const [searchText, setSearchText] = useState('');
+
   createTheme(
     "solarized",
     {
@@ -56,6 +59,19 @@ const TableComponent = ({ title, columnsData, tableData, buttonNew, buttonExport
       },
     },
   };
+  
+  const handleSearch = (event) => {
+    const value = event.target.value;
+    setSearchText(value);
+
+    const filteredData = tableData.filter(item =>
+      (item.name && item.name.toLowerCase().includes(value.toLowerCase())) ||
+      (item.category && item.category.toLowerCase().includes(value.toLowerCase())) ||
+      (item.precio && item.precio.toString().toLowerCase().includes(value.toLowerCase()))
+    );
+
+    setData(filteredData);
+  };
   const styleTitle = (
     <div className="relative flex items-center justify-between pt-4">
       <div className="text-xl font-bold text-navy-700 dark:text-white">
@@ -78,11 +94,18 @@ const TableComponent = ({ title, columnsData, tableData, buttonNew, buttonExport
   );
   return (
     <Card extra={"w-full h-full px-6 pb-6 sm:overflow-x-auto"}>
+      <input
+        type="text"
+        placeholder="Search..."
+        value={searchText}
+        onChange={handleSearch}
+        style={{ marginBottom: '20px', padding: '10px', width: '100%' }}
+      />
       <DataTable
         title={styleTitle}
         responsive
         columns={columnsData}
-        data={tableData}
+        data={data}
         pagination
         customStyles={customStyles}
         theme="solarized"
@@ -93,6 +116,7 @@ const TableComponent = ({ title, columnsData, tableData, buttonNew, buttonExport
           selectAllRowsItem: false,
           selectAllRowsItemText: "Todo",
         }}
+        highlightOnHover
       />
     </Card>
   );
